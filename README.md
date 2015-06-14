@@ -1,10 +1,15 @@
 # angular-touchevents
 
-Directives to add `touchstart`, `touchend`, and `touchmove` to elements, with access to the `$event`.
+Directives to bind `touchstart`, `touchend`, and `touchmove` to elements, with access to the `$event`. (Angular's 
+native module for `ng-touch` does not include these events.)
+
+* AngularJS v.1.4.0
+* Gulp
 
 ## Usage
 
-Add the `ng-touchevents.js` file to your project.
+Add the `ng-touchevents.js` or `ng-touchevents.min.js` file to your project. To simulate touch events in your 
+browser, use emulation settings in your developer's console.
 
 ### Module
 
