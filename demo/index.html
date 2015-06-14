@@ -15,12 +15,12 @@
 				<h1>angular-touchevents</h1>
 
 				<button class="btn btn-success btn-block"
-						ng-touchstart="touchstartBtn()">
+						ng-touchstart="touchstartBtn($event)">
 					On touch start!
 				</button>
 
 				<button class="btn btn-danger btn-block"
-						ng-touchend="touchendBtn()">
+						ng-touchend="touchendBtn($event)">
 					On touch end!
 				</button>
 

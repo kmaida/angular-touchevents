@@ -9,8 +9,6 @@
 
 	//---- Touchstart
 
-	ngTouchstart.$inject = [];
-
 	function ngTouchstart() {
 
 		ngTouchstartLink.$inject = ['$scope', '$elm'];
@@ -22,10 +20,20 @@
 		 * @param $elm {object} DOM element
 		 */
 		function ngTouchstartLink($scope, $elm) {
-			$elm.bind('touchstart', $scope.ngTouchstart);
+
+			/**
+			 * on touchstart event
+			 *
+			 * @param $event {object} touchstart event obj
+			 */
+			function onTouchStart($event) {
+				$scope.ngTouchstart({$event: $event});
+			}
+
+			$elm.bind('touchstart', onTouchStart);
 
 			$scope.$on('$destroy', function() {
-				$elm.unbind('touchstart', $scope.ngTouchstart);
+				$elm.unbind('touchstart', onTouchStart);
 			});
 		}
 
@@ -40,8 +48,6 @@
 
 	//---- Touchend
 
-	ngTouchend.$inject = [];
-
 	function ngTouchend() {
 
 		ngTouchendLink.$inject = ['$scope', '$elm'];
@@ -53,10 +59,20 @@
 		 * @param $elm {object} DOM element
 		 */
 		function ngTouchendLink($scope, $elm) {
-			$elm.bind('touchend', $scope.ngTouchend);
+
+			/**
+			 * On touchend event
+			 *
+			 * @param $event {object} touchend event obj
+			 */
+			function onTouchEnd($event) {
+				$scope.ngTouchend({$event: $event});
+			}
+
+			$elm.bind('touchend', onTouchEnd);
 
 			$scope.$on('$destroy', function() {
-				$elm.unbind('touchend', $scope.ngTouchend);
+				$elm.unbind('touchend', onTouchEnd);
 			});
 		}
 
@@ -71,8 +87,6 @@
 
 	//---- Touchmove
 
-	ngTouchmove.$inject = [];
-
 	function ngTouchmove() {
 
 		ngTouchmoveLink.$inject = ['$scope', '$elm'];
@@ -84,14 +98,20 @@
 		 * @param $elm {object} DOM element
 		 */
 		function ngTouchmoveLink($scope, $elm) {
-			$elm.bind('touchmove', onTouchMove);
 
+			/**
+			 * On touchmove event
+			 *
+			 * @param $event {object} touchmove event obj
+			 */
 			function onTouchMove($event) {
 				$scope.ngTouchmove({$event: $event});
 			}
 
+			$elm.bind('touchmove', onTouchMove);
+
 			$scope.$on('$destroy', function() {
-				$elm.unbind('touchstart', onTouchMove);
+				$elm.unbind('touchmove', onTouchMove);
 			});
 		}
 
