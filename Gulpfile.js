@@ -5,9 +5,9 @@ var gulp = require('gulp'),
 
 // JS
 gulp.task('js', function() {
-	gulp.src('ng-touchevents.js')
+	gulp.src('touchevents.js')
 		.pipe(uglify())
-		.pipe(rename('ng-touchevents.min.js'))
+		.pipe(rename('touchevents.min.js'))
 		.pipe(gulp.dest('./'));
 });
 
