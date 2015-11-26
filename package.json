@@ -1,6 +1,6 @@
 {
   "name": "angular-touchevents",
-  "description": "Project description",
+  "description": "Angular touchevents for touchstart, touchend, and touchmove",
   "author": "Kim Maida",
   "license": "MIT",
   "engines": {
